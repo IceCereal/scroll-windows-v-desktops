@@ -2,7 +2,13 @@ from pynput import mouse
 from pynput.keyboard import Key, Controller
 import json
 
-with open('config.json', 'r') as f:
+from pathlib import Path
+from sys import argv
+
+config_file = argv[1]
+config_path = Path(config_file)
+
+with open(config_path, 'r') as f:
   config = json.load(f)
 
 keyboard = Controller()
